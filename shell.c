@@ -20,6 +20,8 @@ int main(void)
 		
 		if (keepline == -1)
 			break;
+		if (keepgetline == '\n')
+			continue;
 		
 		buff_token = _strtok(buffer);
 
