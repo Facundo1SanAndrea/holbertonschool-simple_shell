@@ -12,5 +12,9 @@
 int main(void);
 int _which(char argc, char **argv);
 int env(int ac, char **av, char **env);
+char *prompt(void);
+char **token(char *line);
+int exec(char **arg);
+
 
 #endif
