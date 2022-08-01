@@ -61,4 +61,30 @@ int exec(char **args)
 
 	while (args[i])
 	{
-		printf(
+		_puts(args[i]);
+		i++;
+	}
+	
+	pid = fork();
+	if (pid == -1)
+	{
+		perror("Error");
+		return(1);
+	}
+	if (pid == 0)
+	{
+		if (i > 1)
+		{
+			execve(args[0], args, NULL);
+		}
+		else
+		{
+			perror("Error");
+		}
+	}
+	else
+	{
+		wait(&status);
+	}
+	return (0);
+}

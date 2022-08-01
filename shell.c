@@ -28,9 +28,8 @@ int main(void)
 			i++;
 		}
 
+		exec(args);
 
-/*		exec(args);
-*/
 		free(args);
 		free(line);
 
