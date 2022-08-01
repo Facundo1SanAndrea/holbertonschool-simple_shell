@@ -14,10 +14,11 @@
 int main(void);
 int _which(char argc, char **argv);
 int env(int ac, char **av, char **env);
-
+int _putchar(char c);
 char *prompt(void);
 char **_tok(char *line);
 int exec(char **arg);
+void _puts(char *str);
 
 
 #endif
