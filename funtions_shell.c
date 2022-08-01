@@ -8,10 +8,6 @@ char *prompt(void)
 	size_t bufsize = 32;
 	char *buffer;
 
-	buffer = malloc(bufsize * sizeof(char));
-	if (buffer == NULL)
-		exit (1);
-
 	printf("#cisfun$ ");
 	getline(&buffer, &bufsize, stdin);
 
@@ -53,38 +49,13 @@ char **_tok(char *line)
  *
  */
 
-int exec(char **args)
+int exec(char *argv)
 {
-	int i = 0;
-	pid_t pid;
-	int status;
+	char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
 
-	while (args[i])
-	{
-		_puts(args[i]);
-		i++;
-	}
-	
-	pid = fork();
-	if (pid == -1)
-	{
-		perror("Error");
-		return(1);
-	}
-	if (pid == 0)
-	{
-		if (i > 1)
-		{
-			execve(args[0], args, NULL);
-		}
-		else
-		{
-			perror("Error");
-		}
-	}
-	else
-	{
-		wait(&status);
-	}
-	return (0);
+    	if (execve(argv[0], argv, NULL) == -1)
+    	{
+        	perror("Error:");
+    	}
+    	return (0);
 }

@@ -17,7 +17,7 @@ int env(int ac, char **av, char **env);
 int _putchar(char c);
 char *prompt(void);
 char **_tok(char *line);
-int exec(char **arg);
+int exec(char *argv);
 void _puts(char *str);
 
 
