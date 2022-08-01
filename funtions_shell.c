@@ -17,3 +17,25 @@ char *prompt(void)
 
 	return (buffer);
 }
+
+char **_tok(char *line)
+{
+	char *token;
+	char **args = malloc(sizeof(char *) * 20);
+	int positions = 0;
+
+	printf("\n------%s-----\n", line); /*to chek progres*/
+
+	token = strtok(line, " ");
+	if(token != NULL)
+	{
+		while(token != NULL)
+		{
+			args[positions] = strdup(token);
+			positions++;
+			token = strtok(NULL, " ");
+		}
+	}
+	args[positions] = NULL;
+	return (args);
+}

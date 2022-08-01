@@ -11,18 +11,30 @@ int main(void)
 {
 	char *line;
 	char **args;
+	int i = 0, a = 1;
 
 	do
 	{
-	line = prompt();
+		i = 0;
+		line = prompt();
 
-	agrs = tok(line);
+		printf("%s", line); /*to chek getline*/
 
-	exec(args);
+		args = _tok(line);
 
-	free(args);
-	free(line);
+		while (args[i])
+		{
+			printf("%s\n", args[i]); /*to chek strtok*/
+			i++;
+		}
 
-	}
-	while (1);
+
+/*		exec(args);
+*/
+		free(args);
+		free(line);
+
+	} while (a);
+
+	return (0);
 }
