@@ -3,7 +3,7 @@
 /**
  *
  */
-char *prompt(void)
+char *pronpt(void)
 {
 	size_t bufsize = 512;
 	char *buffer;
