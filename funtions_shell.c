@@ -5,7 +5,7 @@
  */
 char *prompt(void)
 {
-	size_t bufsize = 512;
+	size_t bufsize = 32;
 	char *buffer;
 
 	buffer = malloc(bufsize * sizeof(char));
@@ -17,6 +17,13 @@ char *prompt(void)
 
 	return (buffer);
 }
+
+/**
+ *
+ *
+ *
+ *
+ */
 
 char **_tok(char *line)
 {
@@ -39,3 +46,19 @@ char **_tok(char *line)
 	args[positions] = NULL;
 	return (args);
 }
+
+/**
+ *
+ *
+ *
+ */
+
+int exec(char **args)
+{
+	int i = 0;
+	pid_t pid;
+	int status;
+
+	while (args[i])
+	{
+		printf(
