@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  *
  *
@@ -18,7 +18,7 @@ int main(void)
 
 		keepgetline = getline(&buffer, &bufsize, stdin);
 		
-		if (keepline == -1)
+		if (keepgetline == -1)
 			break;
 		if (keepgetline == '\n')
 			continue;
