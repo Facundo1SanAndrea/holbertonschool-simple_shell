@@ -24,17 +24,17 @@ int main(void)
 		if (keepgetline == '\n')
 			continue;
 		
-		buff_token = strtok(buffer);
+		buff_token = strtok(buffer, " \t\n");
 
-		if (buff_token[0] == "exit")
+		if (_strcmp(buff_token[0] ,"exit"))
 		{
 			free (buff_token);
 			free (buffer);
 			exit(0);
 		}
-		if (buff_token[0] == "env")
+		if (_strcmp(buff_token[0] , "env"))
 		{
-			_getenv(buff_token);
+			_printenv();
 		}
 		
 		pid = fork();
@@ -48,8 +48,10 @@ int main(void)
 			free (buff_token);
 		}
 		else
+		{
 			wait(&status);
 			free (buff_token);
+		}
 	}
 	return (0);
 }

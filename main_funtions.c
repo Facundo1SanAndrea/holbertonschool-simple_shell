@@ -67,4 +67,15 @@ char *_getenv(const char *name)
  *
  *
  */
+extern char **environ;
 
+int _printenv(void)
+{
+	int i;
+
+	for (i = 0; environ[i]; i++)
+	{
+		printf("%s\n", environ[i]);
+	}
+	return(0);
+}

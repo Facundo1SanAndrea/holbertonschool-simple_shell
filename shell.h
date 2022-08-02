@@ -11,6 +11,7 @@
 #include <stdbool.h>
 
 int main();
+int _printenv(void);
 int main2(char argc, char **argv);
 char *_getenv(const char *name);
 int main3(int ac, char **av, char **env);
