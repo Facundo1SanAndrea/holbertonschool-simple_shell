@@ -75,7 +75,38 @@ int _printenv(void)
 
 	for (i = 0; environ[i]; i++)
 	{
-		printf("%s\n", environ[i]);
+		write (1, environ[i], 10);
 	}
 	return(0);
+}
+/**
+ *
+ *
+ */
+char **_strtok(char *buffer)
+{
+	int i = 0;
+	char *token;	
+	char **buffer_keep;
+	
+	buffer_keep = calloc(1024, sizeof(char *));
+	token = strtok(buffer, "\n");
+	token = strtok(buffer, " \t\n");
+
+	while (token != NULL)
+	{
+		buffer_keep[i] = token;
+
+		if (buffer_keep == NULL)
+		{
+			free (buffer_keep);
+			free (token);
+			free (buffer);
+			return (NULL);
+		}
+		token = strtok(NULL, " \t\n");
+		i++;
+	}
+	buffer_keep[i] = NULL;
+	return (buffer_keep);
 }

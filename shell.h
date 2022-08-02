@@ -23,7 +23,7 @@ int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_strdup(char *str);
 char *str_concat(char *s1, char *s2);
-
+char **_strtok(char *buffer);
 
 
 #endif

@@ -24,7 +24,7 @@ int main(void)
 		if (keepgetline == '\n')
 			continue;
 		
-		buff_token = strtok(buffer, " \t\n");
+		buff_token = _strtok(buffer);
 
 		if (_strcmp(buff_token[0] ,"exit"))
 		{
