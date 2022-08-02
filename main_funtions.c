@@ -78,6 +78,7 @@ int fwe(char **args)
 	}
 	else
 		wait(&status);
+
 	return (0);
 }
 /**
@@ -112,5 +113,4 @@ char *_getenv(const char *name)
  *
  *
  */
-char *str_concat(char *s1, char *s2)
-	strdup
+
