@@ -10,6 +10,7 @@ int main(void)
 	char *buffer = NULL;
 	int keepgetline, status;
 	char **buff_token;
+	pid_t pid;
 	size_t bufsize = 0;
 
 	while (true)
@@ -27,13 +28,13 @@ int main(void)
 
 		if (buff_token[0] == "exit")
 		{
-			free(buff_token);
-			free(buffer);
+			free (buff_token);
+			free (buffer);
 			exit(0);
 		}
 		if (buff_token[0] == "env")
 		{
-			_getenv();
+			_getenv(buff_token);
 		}
 		
 		pid = fork();
@@ -41,14 +42,14 @@ int main(void)
 		{
 			perror("Error");
 		}
-		if (pid == 0)
+		else if (pid == 0)
 		{
 			execve(buff_token[0], buff_token, NULL);
-			free(buff_token);
+			free (buff_token);
 		}
 		else
 			wait(&status);
-			free(buff_token);
+			free (buff_token);
 	}
 	return (0);
 }
