@@ -23,7 +23,7 @@ int main(void)
 		if (keepgetline == '\n')
 			continue;
 		
-		buff_token = _strtok(buffer);
+		buff_token = strtok(buffer);
 
 		if (buff_token[0] == "exit")
 		{
