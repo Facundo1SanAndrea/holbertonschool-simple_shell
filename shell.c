@@ -22,7 +22,6 @@ int main(void)
 			break;
 		if (buffer[0] == '\n')
 			continue;
-		
 		buff_token = _strtok(buffer);
 		if (!_strcmp(buff_token[0] ,"exit"))
 		{

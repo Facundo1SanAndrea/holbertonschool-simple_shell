@@ -64,6 +64,7 @@ char **_strtok(char *buffer)
 	}
 	token = strtok(buffer, "\n");
 	token = strtok(buffer, " \t\n");
+	token = strtok(buffer, "\r");
 
 	while (token != NULL)
 	{
