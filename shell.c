@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  *
  *
@@ -23,7 +24,11 @@ int main(void)
 		if (buffer[0] == '\n')
 			continue;
 		buff_token = _strtok(buffer);
-		if (!_strcmp(buff_token[0] ,"exit"))
+		if (buff_token[0] == NULL)
+		{
+			continue;
+		}
+		if (!_strcmp(buff_token[0], "exit"))
 		{
 			free (buff_token);
 			free (buffer);
@@ -37,7 +42,11 @@ int main(void)
 	free (buffer);
 	return (0);
 }
-
+/**
+ *
+ *
+ *
+ */
 
 
 int my_prompt(void)

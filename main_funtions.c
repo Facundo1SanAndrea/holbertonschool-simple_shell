@@ -52,20 +52,18 @@ int _getenv(void)
  */
 char **_strtok(char *buffer)
 {
-	int i = 0;
+	int i;
 	char *token;	
 	char **buffer_keep;
-	
+
 	buffer_keep = calloc(1024, sizeof(char *));
 
 	if (!buffer_keep)
-	{
 		return (NULL);
-	}
-	token = strtok(buffer, "\n");
-	token = strtok(buffer, " \t\n");
-	token = strtok(buffer, "\r");
 
+	token = strtok(buffer, "\n\t ");
+
+	i = 0;
 	while (token != NULL)
 	{
 		buffer_keep[i] = token;
@@ -73,6 +71,7 @@ char **_strtok(char *buffer)
 		i++;
 	}
 	buffer_keep[i] = NULL;
+
 	return (buffer_keep);
 }
 /**
