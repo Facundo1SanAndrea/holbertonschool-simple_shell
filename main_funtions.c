@@ -42,6 +42,7 @@ int _getenv(void)
 	{
 		write(1, environ[environ_str], _strlen(environ[environ_str]));
 		_putchar('\n');
+		environ_str++;
 	}
 	return (0);
 }
