@@ -7,10 +7,7 @@ simple_shell - command language interpreter
 
 <h2> Synopsis </h2>
   
- <i> [command] [argument..] | ./hsh</i><br>
- <i> [command_fiel] [argument..] | ./hsh</i><br>
- <i> [command] [argument..] [directory_or_file] | ./hsh</i><br>
- <i> [command_file] [argument..] [directory_or_file] | ./hsh</i><br>
+
 
 <h2> Description </h2>
 The sh utility is a command language interpreter that shall
@@ -20,7 +17,7 @@ input, or a specified file.
 <h2> Program flowchart </h2>
 
 ```mermaid
-graph TD;
+graph LR;
 
     s((Start))-->i{interactive mode?};
 
@@ -31,14 +28,50 @@ graph TD;
     
     l("write line")-->e("ejecuto");
     e("ejecuto")-->i{interactive mode?};
+    
+    e("ejecuto")-->bi{"built-in"};
+    
+    
+    bi{"built-in"}-->|yes|func("especific funtions");
+    
+    bi{"built-in"}-->|no|rt{"path ?"};
+    
+    rt{"path ?"}-->|si|chph("chek patch");
+    chph("chek patch")-->xist{"exist path?"};
+    xist{"exist path?"}-->|yes|func("especific funtions")
+    
+    
+    com{"only comand?"}-->|yes|usph("use PATH");
+    usph("use PATH")-->func("especific funtions");
+    rt{"path ?"}-->|no|com{"only comand?"};
 
 ```
 
 <h2> Format </h2>
 
-<h3> Examples </h3>
+<h3> Examples interactive mode</h3>
+
+$ ./hsh<br>
+($) /bin/ls<br>
+hsh main.c shell.c<br>
+($)<br>
+($) exit<br>
+$<br>
+
+<h3> Examples non interactive mode</h3>
 
 
+$ echo "/bin/ls" | ./hsh<br>
+hsh main.c shell.c test_ls_2<br>
+$<br>
+$ cat test_ls_2<br>
+/bin/ls<br>
+/bin/ls<br>
+$<br>
+$ cat test_ls_2 | ./hsh<br>
+hsh main.c shell.c test_ls_2<br>
+hsh main.c shell.c test_ls_2<br>
+$<br>
 
 	
 	
