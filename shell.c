@@ -14,7 +14,7 @@ int main(void)
 
 	while (1)
 	{
-		write(1, "#cisfun$ ", 9);
+		my_prompt();
 
 		keepgetline = getline(&buffer, &bufsize, stdin);
 		
@@ -41,4 +41,9 @@ int main(void)
 
 
 
-int
+int my_prompt(void)
+{
+	if (isatty(STDIN_FILENO) == 1)
+		write(1, "#cisfun$ ", 9);
+	return (0);
+}
