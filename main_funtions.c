@@ -20,6 +20,7 @@ int few(char **args)
 		{
 			perror("Error");
 		}
+		free(args);
 	}
 	else
 	{

@@ -35,5 +35,6 @@ int main(void)
 
 		few(buff_token);
 	}
+	free (buffer);
 	return (0);
 }
