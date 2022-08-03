@@ -13,7 +13,7 @@
 int main();
 int _printenv(void);
 int main2(char argc, char **argv);
-char *_getenv(const char *name);
+int _getenv(void);
 int main3(int ac, char **av, char **env);
 extern char **environ;
 int main4(int ac, char **av);
@@ -24,6 +24,7 @@ int _strlen(char *s);
 char *_strdup(char *str);
 char *str_concat(char *s1, char *s2);
 char **_strtok(char *buffer);
+int few(char **args);
 
 
 #endif

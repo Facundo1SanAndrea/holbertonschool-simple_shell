@@ -3,7 +3,7 @@
  *
  *
  */
-int fwe(char **args)
+int few(char **args)
 {
 	pid_t child_pid;
 	int status;
@@ -22,8 +22,10 @@ int fwe(char **args)
 		}
 	}
 	else
+	{
 		wait(&status);
-
+		free(args);
+	}
 	return (0);
 }
 /**
@@ -31,53 +33,16 @@ int fwe(char **args)
  *
  *
  */
-char *_getenv(const char *name)
+int _getenv(void)
 {
-	int elem, index;
-	bool are_equal;
+	unsigned int string = 0, environ_str = 0;
 
-	for (elem = 0; environ[elem] != NULL; elem++)
+	for (;environ[string] != NULL; string++)
 	{
-		are_equal = true; /* seteado a 1, valor TRUE en condiciones */
-		for (index = 0; environ[elem][index] != '='; index++)
-		{
-			if (name[index] != environ[elem][index])
-			{
-				are_equal = false;
-				break; /* sigue al proximo elemento */
-			}
-		}
-
-		if (are_equal)
-		{
-			/* si el valor es verdadero(comparacion exitosa),
-			 * devuelve los valores luego del '=' 
-			 */
-			return (&environ[elem][index + 1]);
-		}
+		write(1, environ[environ_str], _strlen(environ[environ_str]));
+		_putchar('\n');
 	}
-	return (NULL); /* en caso que no se halla encontrado nombre de la
-			* variable pasada como argumento
-			*/
-}
-
-/**
- *
- *
- *
- *
- */
-extern char **environ;
-
-int _printenv(void)
-{
-	int i;
-
-	for (i = 0; environ[i]; i++)
-	{
-		write (1, environ[i], 10);
-	}
-	return(0);
+	return (0);
 }
 /**
  *
@@ -90,23 +55,29 @@ char **_strtok(char *buffer)
 	char **buffer_keep;
 	
 	buffer_keep = calloc(1024, sizeof(char *));
+
+	if (!buffer_keep)
+	{
+		return (NULL);
+	}
 	token = strtok(buffer, "\n");
 	token = strtok(buffer, " \t\n");
 
 	while (token != NULL)
 	{
 		buffer_keep[i] = token;
-
-		if (buffer_keep == NULL)
-		{
-			free (buffer_keep);
-			free (token);
-			free (buffer);
-			return (NULL);
-		}
 		token = strtok(NULL, " \t\n");
 		i++;
 	}
 	buffer_keep[i] = NULL;
 	return (buffer_keep);
+}
+/**
+ *
+ *
+ *
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
 }

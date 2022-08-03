@@ -8,14 +8,13 @@
 int main(void)
 {
 	char *buffer = NULL;
-	int keepgetline, status;
+	int keepgetline;
 	char **buff_token;
-	pid_t pid;
 	size_t bufsize = 0;
 
-	while (true)
+	while (1)
 	{
-		write(1, "#cisfun$ ", 8);
+		write(1, "#cisfun$  ", 8);
 
 		keepgetline = getline(&buffer, &bufsize, stdin);
 		
@@ -32,25 +31,14 @@ int main(void)
 			free (buffer);
 			exit(0);
 		}
-		if (_strcmp(buff_token[0] , "env"))
-		{
-			_printenv();
-		}
-		
-		pid = fork();
-		if (pid == -1)
+		if (_strcmp(buff_token[0] , "env") == 0)
+			_getenv();
+
+		few(buff_token);
+
+		if(execve(buff_token[0], buff_token, NULL) == -1)
 		{
 			perror("Error");
-		}
-		else if (pid == 0)
-		{
-			execve(buff_token[0], buff_token, NULL);
-			free (buff_token);
-		}
-		else
-		{
-			wait(&status);
-			free (buff_token);
 		}
 	}
 	return (0);
