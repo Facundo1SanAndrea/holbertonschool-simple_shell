@@ -27,8 +27,10 @@ int main(void)
 		if (buff_token[0] == NULL)
 		{
 			continue;
+			free (buffer);
+			free(buff_token);
 		}
-		if (!_strcmp(buff_token[0], "exit"))
+		if (_strcmp(buff_token[0], "exit") == 0)
 		{
 			free (buff_token);
 			free (buffer);
