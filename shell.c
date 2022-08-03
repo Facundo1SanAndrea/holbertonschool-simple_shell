@@ -14,18 +14,17 @@ int main(void)
 
 	while (1)
 	{
-		write(1, "#cisfun$  ", 8);
+		write(1, "#cisfun$ ", 9);
 
 		keepgetline = getline(&buffer, &bufsize, stdin);
 		
 		if (keepgetline == -1)
 			break;
-		if (keepgetline == '\n')
+		if (buffer[0] == '\n')
 			continue;
 		
 		buff_token = _strtok(buffer);
-
-		if (_strcmp(buff_token[0] ,"exit"))
+		if (!_strcmp(buff_token[0] ,"exit"))
 		{
 			free (buff_token);
 			free (buffer);
@@ -35,11 +34,6 @@ int main(void)
 			_getenv();
 
 		few(buff_token);
-
-		if(execve(buff_token[0], buff_token, NULL) == -1)
-		{
-			perror("Error");
-		}
 	}
 	return (0);
 }
