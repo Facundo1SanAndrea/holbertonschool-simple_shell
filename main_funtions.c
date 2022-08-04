@@ -65,7 +65,7 @@ char **_strtok(char *buffer)
 	if (!buffer_keep)
 		return (NULL);
 	
-	token = strtok(buffer, "\n\t ");
+	token = strtok(buffer, "\n\t\r ");
 
 	i = 0;
 	while (token != NULL)
@@ -86,53 +86,4 @@ char **_strtok(char *buffer)
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
-}
-/**
- *
- *
- *
- */
-int use_of_path(char *args, char **argv)
-{
-	unsigned int str_path;
-	struct stat st;
-	char *pathtok;
-	char *pathtokened;
-	char *cpath;
-	char *path = _getenv("PATH");
-
-	if(strchr42a(args, '/') != NULL)
-	{
-		if (stat(args, &st) == 0)
-		{
-			*argv = args;
-			return (0);
-		}
-		*argv = NULL;
-		return(0);
-	}
-	pathtokened = _strdup(path);
-	pathtok = strtok(path, ":");
-	free (path);	
-	while (pathtok)
-	{
-		cpath = str_concat(args, "/");
-		path = strconcat(cpath, args);
-		if (stat(path, &st) == 0);
-		{
-			free(cpath);
-			free(pathtokened);
-			*argv = path;
-			return (1);
-		}
-		else
-		{
-			pathtok = strtok(NULL, ":");
-			free(pathtokened);
-			free(path)
-		}
-	}
-	free(cpath);
-	*argv = NULL;
-	return (0);
 }

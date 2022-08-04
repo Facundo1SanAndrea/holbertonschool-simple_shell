@@ -29,7 +29,6 @@ char **_strtok(char *buffer);
 int few(char **args);
 int my_prompt(void);
 void ctrl_d(int sig);
-char use_of_path(char **argv);
 char *_getenv(const char *name);
 
 #endif

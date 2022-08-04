@@ -9,7 +9,7 @@ int main(void)
 	char *buffer = NULL, **buff_token;
 	int keepgetline;
 	size_t bufsize = 0;
-	int value_of_retu = 0, path = 0;
+	int value_of_retu = 0;
 
 	while (1)
 	{
