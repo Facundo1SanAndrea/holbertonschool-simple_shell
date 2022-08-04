@@ -21,7 +21,7 @@ int main(void)
 
 		keepgetline = getline(&buffer, &bufsize, stdin);
 		
-		if (keepgetline == -1)
+		if (keepgetline == EOF)
 			break;
 		if (buffer[0] == '\n')
 			continue;
@@ -39,8 +39,12 @@ int main(void)
 			exit(0);
 		}
 		if (_strcmp(buff_token[0] , "env") == 0)
+		{
 			_getenv();
-
+			if(buff_token)
+				free(buff_token);
+			continue;
+		}
 		few(buff_token);
 	}
 	free (buffer);
