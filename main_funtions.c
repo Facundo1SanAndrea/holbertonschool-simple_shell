@@ -25,7 +25,11 @@ int few(char **args)
 	else
 	{
 		wait(&status);
-		free(args);
+		if (WIFEXITED(status))
+		{
+			free(args);
+			return(WEXITSTATUS(status));
+		}
 	}
 	return (0);
 }
@@ -56,12 +60,11 @@ char **_strtok(char *buffer)
 	char *token;	
 	char **buffer_keep;
 
-
 	buffer_keep = calloc(1024, sizeof(char *));
 
 	if (!buffer_keep)
 		return (NULL);
-
+	
 	token = strtok(buffer, "\n\t ");
 
 	i = 0;

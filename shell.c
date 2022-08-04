@@ -1,26 +1,21 @@
 #include "shell.h"
-
 /**
  *
  *
  *
  */
-
 int main(void)
 {
-	char *buffer = NULL;
+	char *buffer = NULL, **buff_token;
 	int keepgetline;
-	char **buff_token;
 	size_t bufsize = 0;
+	int value_of_retu = 0;
 
 	while (1)
 	{
 		my_prompt();
-
 		signal(SIGINT, ctrl_d);
-
 		keepgetline = getline(&buffer, &bufsize, stdin);
-		
 		if (keepgetline == EOF)
 			break;
 		if (buffer[0] == '\n')
@@ -36,11 +31,8 @@ int main(void)
 		{
 			free (buff_token);
 			free (buffer);
-			exit(0);
+			return(value_of_retu);
 		}
-		else
-			exit(2);
-
 		if (_strcmp(buff_token[0] , "env") == 0)
 		{
 			_getenv();
@@ -48,10 +40,10 @@ int main(void)
 				free(buff_token);
 			continue;
 		}
-		few(buff_token);
+		value_of_retu = few(buff_token);
 	}
 	free (buffer);
-	return (0);
+	return (value_of_retu);
 }
 /**
  *
