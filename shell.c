@@ -36,7 +36,7 @@ int main(void)
 		{
 			free (buff_token);
 			free (buffer);
-			exit(0);
+			exit(2);
 		}
 		if (_strcmp(buff_token[0] , "env") == 0)
 		{
