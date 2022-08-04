@@ -9,11 +9,13 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <stdbool.h>
+#include <stdint.h>
+#include <inttypes.h>
 
 int main();
 int _printenv(void);
 int main2(char argc, char **argv);
-int _getenv(void);
+int _printenv(void);
 int main3(int ac, char **av, char **env);
 extern char **environ;
 int main4(int ac, char **av);
@@ -27,6 +29,7 @@ char **_strtok(char *buffer);
 int few(char **args);
 int my_prompt(void);
 void ctrl_d(int sig);
-
+char use_of_path(char **argv);
+char *_getenv(const char *name);
 
 #endif

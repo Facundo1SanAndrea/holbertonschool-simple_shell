@@ -9,7 +9,7 @@ int main(void)
 	char *buffer = NULL, **buff_token;
 	int keepgetline;
 	size_t bufsize = 0;
-	int value_of_retu = 0;
+	int value_of_retu = 0, path = 0;
 
 	while (1)
 	{
@@ -34,7 +34,7 @@ int main(void)
 		}
 		if (_strcmp(buff_token[0] , "env") == 0)
 		{
-			_getenv();
+			_printenv();
 			if(buff_token)
 				free(buff_token);
 			continue;
