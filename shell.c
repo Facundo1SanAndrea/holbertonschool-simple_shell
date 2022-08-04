@@ -36,8 +36,11 @@ int main(void)
 		{
 			free (buff_token);
 			free (buffer);
-			exit(2);
+			exit(0);
 		}
+		else
+			exit(2);
+
 		if (_strcmp(buff_token[0] , "env") == 0)
 		{
 			_getenv();
