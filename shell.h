@@ -26,6 +26,7 @@ char *str_concat(char *s1, char *s2);
 char **_strtok(char *buffer);
 int few(char **args);
 int my_prompt(void);
+void ctrl_d(int sig);
 
 
 #endif

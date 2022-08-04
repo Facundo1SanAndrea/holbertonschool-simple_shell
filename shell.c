@@ -17,6 +17,8 @@ int main(void)
 	{
 		my_prompt();
 
+		signal(SIGINT, ctrl_d);
+
 		keepgetline = getline(&buffer, &bufsize, stdin);
 		
 		if (keepgetline == -1)
@@ -56,4 +58,17 @@ int my_prompt(void)
 	if (isatty(STDIN_FILENO) == 1)
 		write(1, "#cisfun$ ", 9);
 	return (0);
+}
+/**
+ *
+ *
+ *
+ */
+void ctrl_d(int sig)
+{
+	if (sig == SIGINT)
+	{
+		write(STDOUT_FILENO, "\n", 2);
+		my_prompt();
+	}
 }
