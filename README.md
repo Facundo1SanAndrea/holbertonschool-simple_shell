@@ -1,4 +1,4 @@
-## SIMPLE SHELL PROJECT
+## C - SIMPLE SHELL PROJECT -
 
 ## WHAT IS A SHELL?
 A Shell provides you with an interface to the Unix system. It gathers input form you and executes programs based on that input. When a program finishes executing , it displays that program´s output.
