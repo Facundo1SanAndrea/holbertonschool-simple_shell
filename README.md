@@ -12,6 +12,7 @@ Look at 	[Unix Shell](https://en.wikipedia.org/wiki/Unix_shell)
 ##  Learning Objectives
 
  - Who designed and implemented the original Unix operating system
+ 
     / Ken Thompson and Dennis Ritchie led the team of computer scientists that created the first version of UNIX in 1969 /
 -   Who wrote the first version of the UNIX shell
 /The first Unix shell was the Thompson shell, sh, written by Ken Thompson at Bell Labs and distributed with Versions 1 through 6 of Unix, from 1971 to 1975/
