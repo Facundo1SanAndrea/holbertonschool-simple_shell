@@ -39,10 +39,6 @@ int main(void)
 			free(buff_token);
 			continue;
 		}
-		if (buff_token[0][0] != '/')
-		{
-			correct_path(buff_token);
-		}
 		value_of_retu = few(buff_token);
 	}
 	free(buffer);
