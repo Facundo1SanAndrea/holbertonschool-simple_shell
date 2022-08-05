@@ -1,7 +1,8 @@
 #include "shell.h"
 /**
- *
- *
+ *few - few function implementation for shell
+ *@args: arguments passed
+ *Return: Always 0
  */
 int few(char **args)
 {
@@ -28,21 +29,21 @@ int few(char **args)
 		if (WIFEXITED(status))
 		{
 			free(args);
-			return(WEXITSTATUS(status));
+			return (WEXITSTATUS(status));
 		}
 	}
 	return (0);
 }
 /**
+ *_printenv - print the enviroment
  *
- *
- *
+ *Return: always 0
  */
 int _printenv(void)
 {
 	unsigned int string = 0, environ_str = 0;
 
-	for (;environ[string] != NULL; string++)
+	for (; environ[string] != NULL; string++)
 	{
 		write(1, environ[environ_str], _strlen(environ[environ_str]));
 		_putchar('\n');
@@ -51,20 +52,21 @@ int _printenv(void)
 	return (0);
 }
 /**
+ *_strtok - function for tokenization
  *
- *
+ *Return: arrays of pointer
  */
 char **_strtok(char *buffer)
 {
 	int i;
-	char *token;	
+	char *token;
 	char **buffer_keep;
 
 	buffer_keep = calloc(1024, sizeof(char *));
 
 	if (!buffer_keep)
 		return (NULL);
-	
+
 	token = strtok(buffer, "\n\t\r ");
 
 	i = 0;
@@ -77,13 +79,4 @@ char **_strtok(char *buffer)
 	buffer_keep[i] = NULL;
 
 	return (buffer_keep);
-}
-/**
- *
- *
- *
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
 }
