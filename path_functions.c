@@ -4,7 +4,11 @@
 extern char **environ;
 
 /**
+ * my_getpath - to found the value of any env
  *
+ * @name: name to the var
+ *
+ * Return: pointer whit value requieride
  */
 char *my_getpath(const char *name)
 {
@@ -30,14 +34,15 @@ char *my_getpath(const char *name)
 		}
 	i++;
 	}
-	printf("\n------------------\n");
 
 	return (NULL);
 }
 
 
 /**
+ * toker_path - this functions tokenize path
  *
+ * Return: path array
  */
 char **toker_path(void)
 {
@@ -48,9 +53,9 @@ char **toker_path(void)
 
 	path_coppy = _strdup(my_getpath("PATH"));
 
-	printf("tp %s", path_coppy);
 
         tok_path = _strtok(path_coppy);
+
 
         free(path_coppy);
 
@@ -61,8 +66,11 @@ char **toker_path(void)
 }
 
 /**
+ * correct_path - serch the correct path
  *
+ * @buff_tokens: path tokenized
  *
+ * Return: alwais 0
  */
 int correct_path(char **buff_tokens)
 {
@@ -72,25 +80,19 @@ int correct_path(char **buff_tokens)
 	char **tok_path;
 
 	tok_path = toker_path();
-	if (buff_tokens[0][0] != '/')
-	{
-	        while (tok_path[i])
-	        {
-	                directory = _strdup(tok_path[i]);
-	                str_concat(directory, "/");
-			printf("\njlij %s\n", directory);
-	                str_concat(directory, buff_tokens[0]);
-			printf("\njlij %s\n", directory);
-	                if (stat(directory, &st) == 0)
-	        	{
-				buff_tokens[0] = _strdup(directory);
-				printf("\njlij %s\n", buff_tokens[0]);
-	                        return (0);
-	                }
-	                i++;
-	        }
-	}
-	printf("buff_tokens2 %s", buff_tokens[0]);
+	
+        while (tok_path[i])
+        {
+                directory = _strdup(tok_path[i]);
+                directory = str_concat(directory, "/");
+                directory = str_concat(directory, buff_tokens[0]);
 
+                if (stat(directory, &st) == 0)
+        	{
+			buff_tokens[0] = _strdup(directory);
+                        return (0);
+                }
+                i++;
+        }
         return (0);
 }

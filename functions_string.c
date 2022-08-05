@@ -102,38 +102,25 @@ return (diff);
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i = 0;
-	int j = 0;
-	char *result;
+	char *pr;
+	int size1, size2, i, j;
 
 	if (s1 == NULL)
-	{
 		s1 = "";
-	}
 	if (s2 == NULL)
-	{
 		s2 = "";
-	}
-
-	result = malloc(sizeof(char) * _strlen(s1) + _strlen(s2) + 1);
-
-	if (result == NULL)
-	{
+	size1 = strlen(s1);
+	size2 = strlen(s2);
+	pr = malloc((size1 + size2 + 1) * sizeof(char));
+	if (pr == NULL)
 		return (NULL);
-	}
-
-	else
+	for (i = 0; i < size1; i++)
+		pr[i] = s1[i];
+	for (j = 0; j < size2; j++)
 	{
-		for (i = 0; i < _strlen(s1); i++)
-		{
-			result[i] = s1[i];
-		}
-		for (j = 0; j < _strlen(s2); j++)
-		{
-			result[i + j] = s2[j];
-		}
-		result[i + j] = '\0';
+		pr[i] = s2[j];
+		i++;
 	}
-	free(result);
-	return (result);
+	pr[i + j] = '\0';
+	return (pr);
 }
