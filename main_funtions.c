@@ -67,13 +67,13 @@ char **_strtok(char *buffer)
 	if (!buffer_keep)
 		return (NULL);
 
-	token = strtok(buffer, "\n\t :");
+	token = strtok(buffer, "\n\t ");
 
 	i = 0;
 	while (token != NULL)
 	{
 		buffer_keep[i] = token;
-		token = strtok(NULL, ": \t\n");
+		token = strtok(NULL, " \t\n");
 		i++;
 	}
 	buffer_keep[i] = NULL;
