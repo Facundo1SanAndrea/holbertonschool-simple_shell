@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <inttypes.h>
 
-int main();
+int main(void);
 int _printenv(void);
 int main2(char argc, char **argv);
 int _printenv(void);
