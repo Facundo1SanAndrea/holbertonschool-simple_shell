@@ -78,10 +78,13 @@ int correct_path(char **buff_tokens)
 	        {
 	                directory = _strdup(tok_path[i]);
 	                str_concat(directory, "/");
+			printf("\njlij %s\n", directory);
 	                str_concat(directory, buff_tokens[0]);
+			printf("\njlij %s\n", directory);
 	                if (stat(directory, &st) == 0)
 	        	{
 				buff_tokens[0] = _strdup(directory);
+				printf("\njlij %s\n", buff_tokens[0]);
 	                        return (0);
 	                }
 	                i++;
