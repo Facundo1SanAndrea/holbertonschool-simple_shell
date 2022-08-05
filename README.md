@@ -1,4 +1,4 @@
-## SIMPLE SHELL PROJECT
+## C - SIMPLE SHELL PROJECT -
 
 ## WHAT IS A SHELL?
 A Shell provides you with an interface to the Unix system. It gathers input form you and executes programs based on that input. When a program finishes executing , it displays that program´s output.
@@ -12,44 +12,61 @@ Look at 	[Unix Shell](https://en.wikipedia.org/wiki/Unix_shell)
 ##  Learning Objectives
 
  - Who designed and implemented the original Unix operating system
+ 
     / Ken Thompson and Dennis Ritchie led the team of computer scientists that created the first version of UNIX in 1969 /
 -   Who wrote the first version of the UNIX shell
+
 /The first Unix shell was the Thompson shell, sh, written by Ken Thompson at Bell Labs and distributed with Versions 1 through 6 of Unix, from 1971 to 1975/
+
 -   Who invented the B programming language (the direct predecessor to the C programming language)
+
 /Ken Thompson/
 
 -   Who is Ken Thompson
+
 / -   Kenneth Lane Thompson (born February 4, 1943) is an American pioneer of computer science. Thompson worked at Bell Labs for most of his career where he designed and implemented the original Unix operating system./
+
 -   How does a shell work
+
 -   What is a pid and a ppid
+
 /-   PID stands for Process ID, Which means Identification Number for currently running process in Memory. PPID stands for Parent Process ID, Which means Parent Process is the responsible for creating the current process(Child Process). Through Parent Process, The child process will be created. If you kill the parent process, the child process is also killed as well./
 
 -   How to manipulate the environment of the current process
+
 /-   Every UNIX process has an “environment”. The environment consists of “environment variables”, each of which has a string value associated with it. Some environment variables always exist, such as path, which tells the shell where to look for programs, or term which specifies the kind of terminal being used. You may add other environment variables at any time from an interactive shell, or you can add them to the file, such as the .login file, that is executed when you log in. When a process is created, it is given a copy of the environment from its parent process. When started, it inherits a copy of its parent’s environment. The parent process is usually the interactive shell from which it was started. In turn, any child process created inherits a copy of the parent process current environment. Environment variables should be used for communicating with child processes./
+
 -   What is the difference between a function and a system call
+
 /Although the two terms are used interchangeably, there is a difference between system call and function call. System calls are used when a program needs to communicate with the kernel while function calls are used to call a specific function within the program./
 
 -   How to create processes
+
 /A process is created in UNIX with the fork system call. The fork system call creates a duplicate of the calling process. The new process is called the child and the process that created it is called the parent. The child process starts running right after the call to fork, and both processes initially share the CPU. The child process has a copy of the parent's environment, open files, real and user identifications, umask, current working directory, and signals./
 
 -   What are the three prototypes of  `main`
+
 `int main(void);`  
 `int main(int argc, char **argv);`
  `int main(int argc, char *argv[], char *envp[]);`
 
 -   How does the shell use the  `PATH`  to find the programs
+
 /The shell tries each directory in the  `PATH`, left-to-right, and runs the first executable program with the matching command name that it finds. Using the above  `PATH`  list of directories, you can see that when you type  `date`, the first directory tried in the  `PATH`  is  `/usr/local/bin`, so the shell looks for an executable file named  `/usr/local/bin/date`./ 
 
 -   How to execute another program with the  `execve`  system call
+
 /**execve**() executes the program referred to by _pathname_.  This
        causes the program that is currently being run by the calling
        process to be replaced with a new program, with newly initialized
        stack, heap, and (initialized and uninitialized) data segments/
 
 -   How to suspend the execution of a process until one of its children terminates
+
 /Suspends the calling process until any one of its child processes ends. More precisely, wait() suspends the calling process until the system obtains status information on the ended child. If the system already has status information on a completed child process when wait() is called, wait() returns immediately/
 
 -   What is  `EOF`  / “end-of-file”?
+
 /condition in a computer operating system where no more data can be read from a data source./
 
 ##  Requirements
