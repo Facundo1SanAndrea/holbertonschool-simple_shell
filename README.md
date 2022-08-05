@@ -155,23 +155,25 @@ The shell reads your entry and divides it into words and operators.
 The shell then analyzes these tokens in commands and other constructs, redirects the input and output as needed, executes the specified command, waits for the output state of the command, and makes that output status available. for further inspection or processing.
 
 ```
-total 88
-drwxrwxr-x  3 vagrant vagrant  4096 Apr 12 18:35 .
-drwxr-xr-x 10 vagrant vagrant  4096 Apr 12 18:35 ..
-drwxrwxr-x  8 vagrant vagrant  4096 Apr 12 18:35 .git
--rw-rw-r--  1 vagrant vagrant     7 Apr  7 23:28 .gitignore~
--rw-rw-r--  1 vagrant vagrant    28 Apr  7 23:07 README.md
--rw-rw-r--  1 vagrant vagrant   806 Apr 12 12:26 error_handler.c
--rw-rw-r--  1 vagrant vagrant   304 Apr 12 12:26 exec.c
--rw-rw-r--  1 vagrant vagrant   749 Apr 12 12:26 fork.c
--rwxrwxr-x  1 vagrant vagrant 13639 Apr 10 21:27 hsh
--rw-rw-r--  1 vagrant vagrant   806 Apr 12 12:26 prompt.c
--rw-rw-r--  1 vagrant vagrant   513 Apr 12 12:26 read_line.c
--rw-rw-r--  1 vagrant vagrant   827 Apr 12 12:26 shell.c
--rw-rw-r--  1 vagrant vagrant   680 Apr 12 12:26 shell.h
--rw-rw-r--  1 vagrant vagrant   258 Apr 12 12:26 stat.c
--rwxrwxr-x  1 vagrant vagrant 13966 Apr 12 12:26 test
--rw-rw-r--  1 vagrant vagrant   161 Apr 12 12:26 util.c
+total 38680
+drwxr-xr-x 4 root root    4096 Aug  4 22:46 .
+drwx------ 1 root root    4096 Aug  4 22:52 ..
+drwxr-xr-x 8 root root     201 Aug  4 22:23 .git
+-rw-r--r-- 1 root root     161 Aug  1 13:42 AUTHORS
+-rw-r--r-- 1 root root    1522 Aug  3 11:57 README.md
+-rw-r--r-- 1 root root    1377 Aug  2 16:49 functions_string.c
+-rwxr-xr-x 1 root root   17784 Aug  4 22:11 hsh
+-rw-r--r-- 1 root root    1088 Aug  4 22:11 main_funtions.c
+-rw-r--r-- 1 root root      15 Aug  1 12:52 man_1_simple_shell
+drwxr-xr-x 2 root root      92 Aug  4 22:47 pruebaparaelpath
+-rw-r--r-- 1 root root     983 Aug  4 22:42 shell.c
+-rw-r--r-- 1 root root     740 Aug  4 22:13 shell.h
+-rw------- 1 root root 6590464 Aug  3 15:33 vgcore.31729
+-rw------- 1 root root 6590464 Aug  3 15:34 vgcore.31730
+-rw------- 1 root root 6590464 Aug  3 15:36 vgcore.31732
+-rw------- 1 root root 6590464 Aug  3 15:40 vgcore.31782
+-rw------- 1 root root 6590464 Aug  3 18:12 vgcore.32140
+-rw------- 1 root root 6590464 Aug  3 18:57 vgcore.32151
 ```
 
 ## BUILTIN FUNCTIONS
