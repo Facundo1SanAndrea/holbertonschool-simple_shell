@@ -13,6 +13,7 @@
 #include <inttypes.h>
 
 int main(void);
+int _putchar(char c);
 int _printenv(void);
 int main2(char argc, char **argv);
 int _printenv(void);

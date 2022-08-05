@@ -67,7 +67,7 @@ char **_strtok(char *buffer)
 	if (!buffer_keep)
 		return (NULL);
 
-	token = strtok(buffer, "\n\t\r ");
+	token = strtok(buffer, "\n\t ");
 
 	i = 0;
 	while (token != NULL)
@@ -79,4 +79,15 @@ char **_strtok(char *buffer)
 	buffer_keep[i] = NULL;
 
 	return (buffer_keep);
+}
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
 }

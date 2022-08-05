@@ -24,7 +24,7 @@ int main(void)
 		if (buff_token[0] == NULL)
 		{
 			free(buff_token);
-			break;
+			continue;
 		}
 		if (_strcmp(buff_token[0], "exit") == 0)
 		{
