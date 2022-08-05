@@ -147,10 +147,10 @@ To start, write;
 
 The shell reads the entry and proceeds through a sequence of operations.
 ```
-ls -la
+/bin/ls -la
 ```
 The shell reads your entry and divides it into words and operators.
-/**ls   /-la**/
+/**/bin /ls -la**/
 
 The shell then analyzes these tokens in commands and other constructs, redirects the input and output as needed, executes the specified command, waits for the output state of the command, and makes that output status available. for further inspection or processing.
 
