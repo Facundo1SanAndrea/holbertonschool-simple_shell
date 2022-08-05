@@ -53,7 +53,7 @@ int _printenv(void)
 }
 /**
  *_strtok - function for tokenization
- *@Buffer: Pointer
+ *buffer: Pointer
  *Return: arrays of pointer
  */
 char **_strtok(char *buffer)
