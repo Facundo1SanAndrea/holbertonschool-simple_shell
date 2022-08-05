@@ -57,7 +57,7 @@ int my_prompt(void)
 }
 /**
  *ctrl_d - catch ths signal
- *@sig; signal
+ *@sig: signal
  *Return: void
  */
 void ctrl_d(int sig)
