@@ -13,7 +13,6 @@
 #include <inttypes.h>
 
 
-int correct_path(char **buff_tokens);
 int main(void);
 int _putchar(char c);
 int _printenv(void);
