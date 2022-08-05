@@ -1,8 +1,8 @@
 #include "shell.h"
 /**
+ *main - the main function of the shell
  *
- *
- *
+ *Return: void
  */
 int main(void)
 {
@@ -23,34 +23,32 @@ int main(void)
 		buff_token = _strtok(buffer);
 		if (buff_token[0] == NULL)
 		{
-			free (buff_token);
+			free(buff_token);
 			break;
 		}
 		if (_strcmp(buff_token[0], "exit") == 0)
 		{
-			free (buff_token);
-			free (buffer);
-			return(value_of_retu);
+			free(buff_token);
+			free(buffer);
+			return (value_of_retu);
 		}
-		if (_strcmp(buff_token[0] , "env") == 0)
+		if (_strcmp(buff_token[0], "env") == 0)
 		{
 			_printenv();
-			if(buff_token)
+			if (buff_token)
 			free(buff_token);
 			continue;
 		}
 		value_of_retu = few(buff_token);
 	}
-	free (buffer);
+	free(buffer);
 	return (value_of_retu);
 }
 /**
+ *my_prompt - verify if its from terminal or file
  *
- *
- *
+ *Return: void
  */
-
-
 int my_prompt(void)
 {
 	if (isatty(STDIN_FILENO) == 1)
@@ -58,9 +56,9 @@ int my_prompt(void)
 	return (0);
 }
 /**
- *
- *
- *
+ *ctrl_d - catch ths signal
+ *@sig; signal
+ *Return: void
  */
 void ctrl_d(int sig)
 {

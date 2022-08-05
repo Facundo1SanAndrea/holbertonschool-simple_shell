@@ -1,8 +1,10 @@
 #include "shell.h"
 /**
- *
- *
- *
+ *_strcpy - function that copies the string pointed to by src, including the
+ *terminating null byte (\0), to the buffer pointed to by dest
+ *@dest: buffer to be pointed to
+ *@src: text
+ *Return: copied text
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -20,9 +22,9 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- *
- *
- *
+ *_strlen - returns the length of a string
+ *@s: string
+ *Return: length
  */
 int _strlen(char *s)
 {
@@ -34,9 +36,9 @@ int _strlen(char *s)
 }
 
 /**
- *
- *
- *
+ *_strdup - main function of strdup
+ *@str: string
+ *Return: pointer to allocated memory
  */
 char *_strdup(char *str)
 {
@@ -67,13 +69,14 @@ char *_strdup(char *str)
 		*pdst = '\0';
 	}
 	return (result);
-	free (result);
+	free(result);
 
 }
 /**
- *
- *
- *
+ *_strcmp - function that compares strings
+ *@s1: first sring
+ *@s2: second string
+ *Return: diference between s1 and s2
  */
 int _strcmp(char *s1, char *s2)
 {
@@ -92,10 +95,10 @@ int _strcmp(char *s1, char *s2)
 return (diff);
 }
 /**
- *
- *
- *
- *
+ *str_concat - main function to concatenate
+ *@s1: string one
+ *@s2: string two
+ *Return: pointer to allocated memory
  */
 char *str_concat(char *s1, char *s2)
 {
@@ -131,6 +134,6 @@ char *str_concat(char *s1, char *s2)
 		}
 		result[i + j] = '\0';
 	}
-	free (result);
+	free(result);
 	return (result);
 }
